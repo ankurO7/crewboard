@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #FAF6EF;
+  --surface: #EDE4D3;
+  --ink: #2B2B2B;
+  --ink-soft: #6B6459;
+  --working: #5B7B6F;
+  --paused: #C98A4B;
+  --stopped: #B5544A;
+  --border: #DCD2BC;
+}
+
+.page-header h1 {
+  color: var(--ink);
+}
+
+.panel h2 {
+  color: var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 3px 3px 0 var(--border);
+}
+
+.task-card h3, .task-card p, .task-card {
+  color: var(--ink);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+}
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.page-header h1 {
+  font-family: 'Lora', serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  color: var(--ink-soft);
+  margin: 0 0 40px;
+  font-size: 1.05rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.panel h2 {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.inline-form, .stack-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+input, select {
+  font-family: 'Inter', sans-serif;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+input:focus, select:focus, button:focus {
+  outline: 2px solid var(--working);
+  outline-offset: 1px;
+}
+
+button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  padding: 9px 14px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+button:hover { opacity: 0.85; }
+
+.roster-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.roster-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+.roster-list li:last-child { border-bottom: none; }
+
+.role-tag {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.role-tag.admin { color: var(--stopped); font-weight: 600; }
+
+.empty {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+.task-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--ink-soft);
+  border-radius: 3px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.task-card.status-working { border-left-color: var(--working); }
+.task-card.status-paused { border-left-color: var(--paused); }
+.task-card.status-stopped { border-left-color: var(--stopped); }
+
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.task-card h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  margin: 0 0 3px;
+  font-weight: 600;
+}
+
+.assignee {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.status-pill {
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  border-radius: 12px;
+  white-space: nowrap;
+  color: var(--bg);
+}
+
+.status-pill.status-working { background: var(--working); }
+.status-pill.status-paused { background: var(--paused); }
+.status-pill.status-stopped { background: var(--stopped); }
+
+.status-controls {
+  display: flex;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.control {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-size: 0.78rem;
+  padding: 5px 10px;
+}
+
+.control.working:hover { border-color: var(--working); color: var(--working); }
+.control.paused:hover { border-color: var(--paused); color: var(--paused); }
+.control.stopped:hover { border-color: var(--stopped); color: var(--stopped); }
+
+.update-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.update-row input { flex: 1; }

@@ -1,0 +1,13 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
